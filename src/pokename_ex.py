@@ -38,17 +38,12 @@ def charmap2dict(alphabetTable, hexTable, reverse):
     
 entries = 412
 
-map = {
-    0xA : 10
-}
-
 # open charmap
 with open("pk_gen_III_ger_charmap.chmp", 'r') as infile:
     # create list of chars
     line = list(infile)
 # get charmap as dictionary
 dictCharmap = charmap_interpreter(line, True)
-map[int('0xB',0)] = 11
 
 with open("bprd.gba", 'rb') as infile:
     infile.seek(0x245DB0)
@@ -78,3 +73,4 @@ with open("poke_name_list.str", 'w') as outfile:
              outfile.write("\n\t\t" + l_strings[i] + "\n\t\"\n}")
         else:
             outfile.write("\n\t\t" + l_strings[i] + "\n\n\t\t[+]\n")
+            
